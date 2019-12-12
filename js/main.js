@@ -1,13 +1,15 @@
 $(function(){
 	var w;
 	var h;
-	var t;
+	var t=0;
 	var n=0;
+	var pos=0;
 	var flag=false;
 
 	/* 탭 메뉴 */
 	$(".tab").click(function(e){
 		e.preventDefault();
+
 		$("#responsive").toggleClass("active");
 		$("#header .dim").toggleClass("active");
 		$("body").toggleClass("static");
@@ -23,6 +25,7 @@ $(function(){
 	});
 	$(window).resize(function(){
 		w=$(window).width();
+		
 		if(w > 720) {
 			$("#responsive").removeClass("active");
 			$("#header .dim").removeClass("active");
@@ -34,10 +37,9 @@ $(function(){
 
 	/* 리사이즈 이벤트 */
 	$(window).resize(function(){
-		w=$(window).width();
 		h=$(window).height();
 		t=-1*n*h;
-		$("section").css({top:t});
+		$(".wrapper > *").css({top:t});
 	});
 
 	/* 스크롤 이벤트 */
@@ -49,10 +51,9 @@ $(function(){
 	}, 10);
 
 	$(window).scroll(function(){
+		if(flag == false) return;
+
 		t=$(window).scrollTop();
-		if(flag == false) {
-			return false;
-		}
 
 		// 고정메뉴
 		if(t > $("#service").offset().top) {
@@ -93,16 +94,20 @@ $(function(){
 
 	/* 클릭 이벤트 */
 	$("#GNB a, #fixed_nav a, #responsive a").click(function(e){
+		if($("html").is(":animated")) return;
+
 		e.preventDefault();
 		n=$(this).parent("li").index();
-		h=$(window).height();
-		t=-1*n*h;
-		$("section").animate({top:t}, 800, function(){
+		pos=$(".wrapper > *").eq(n).offset().top;
+
+		$("html").animate({scrollTop:pos}, 800, function(){
 			if(n != 0) {
 				$("#fixed_nav").addClass("show");
 			} else {
 				$("#fixed_nav").removeClass("show");
 			}
+			$(".wrapper > *").removeClass("active");
+			$(".wrapper > *").eq(n).addClass("active");
 		});
 	});
 
