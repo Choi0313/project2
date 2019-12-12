@@ -25,7 +25,7 @@ $(function(){
 	});
 	$(window).resize(function(){
 		w=$(window).width();
-		
+
 		if(w > 720) {
 			$("#responsive").removeClass("active");
 			$("#header .dim").removeClass("active");
@@ -56,7 +56,7 @@ $(function(){
 		t=$(window).scrollTop();
 
 		// 고정메뉴
-		if(t > $("#service").offset().top) {
+		if(n != 0) {
 			$("#fixed_nav").addClass("show");
 		} else {
 			$("#fixed_nav").removeClass("show");
