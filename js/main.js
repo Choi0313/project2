@@ -23,8 +23,12 @@ $(function(){
 		$(".wrapper").removeClass("active");
 		$("#header .tab").removeClass("active");
 	});
+
+	/* 리사이즈 이벤트 */
 	$(window).resize(function(){
 		w=$(window).width();
+		h=$(window).height();
+		t=-1*n*h;
 
 		if(w > 720) {
 			$("#responsive").removeClass("active");
@@ -33,13 +37,6 @@ $(function(){
 			$(".wrapper").removeClass("active");
 			$("#header .tab").removeClass("active");
 		}
-	});
-
-	/* 리사이즈 이벤트 */
-	$(window).resize(function(){
-		h=$(window).height();
-		t=-1*n*h;
-		$(".wrapper > *").css({top:t});
 	});
 
 	/* 스크롤 이벤트 */

@@ -97,7 +97,7 @@ body.static {
 }
 #fixed_nav li {
 	display: inline-block;
-	padding: 0 20px;
+	padding: 0 25px;
 	height: 55px;
 }
 #fixed_nav li a {
@@ -205,6 +205,9 @@ body.static {
 	#header .upper .logo {
 		padding-left: 20px;
 	}
+	#fixed_nav li {
+		padding: 0 15px;
+	}
 	#header .main_text {
 		width: 100%;
 	}
@@ -216,11 +219,11 @@ body.static {
 	#GNB {
 		display: none;
 	}
-	#header .fixed_nav li {
-		padding: 0 10px;
+	#fixed_nav li {
+		padding: 0 7px;
 	}
-	#header .fixed_nav li a {
-		font-size: 0.875em;
+	#fixed_nav li a {
+		font-size: 0.75em;
 	}
 	#header .tab {
 		display: block;
@@ -242,10 +245,10 @@ body.static {
 	#header .upper .logo {
 		padding-left: 36px;
 	}
-	#header .fixed_nav li {
+	#fixed_nav li {
 		padding: 0 3px;
 	}
-	#header .fixed_nav li a {
+	#fixed_nav li a {
 		font-size: 0.75em;
 	}
 	#header .main_text p {
